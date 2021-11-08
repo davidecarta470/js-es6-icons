@@ -1,0 +1,42 @@
+.main-wrapper{
+  height:100vh;
+}
+header{
+  height:20%;
+  display:flex;
+  flex-direction: column;
+}
+.top-header,.bottom-header{
+  height:50%;
+}
+.top-header{
+  font-family: 'Acme', sans-serif;
+  color: #29b1dd;
+  font-size: 50px;
+}
+.bottom-header{
+  background-color: #29b1dd;
+  color:white;
+}
+.dc-label{
+  font-size: 20px;
+}
+.dc-select{
+  font-size: 10px;
+}
+
+.square{
+  font-size: 40px;
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px black;
+}
+
+.main-wrapper main{
+  background-color: #dddddd;
+}
