@@ -1,4 +1,4 @@
-const icons = [
+const allIcons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,45 +112,69 @@ const icons = [
 		color: 'blue'
 	}
 ];
-const arrayColorType =['yellow','blue','purple']
+
 const row = document.querySelector('.row');
-console.log(row)
 
 
-let select = document.getElementById('select').value;
-	const iconsAnimals = icons.filter((icon)=>{
+// Creo tre array che contengono solo animali,solo frutta ,solo users
+  const iconsAnimals = allIcons.filter((icon)=>{
 		return icon.type==='animal'
 	})
-	console.log(iconsAnimals)
-
-
-	const iconsVegetables = icons.filter((icon)=>{
+	
+	const iconsVegetables = allIcons.filter((icon)=>{
 		return icon.type==='vegetable'
 	})
-	console.log(iconsVegetables.color)
 
-
-	const iconsUsers = icons.filter((icon)=>{
+	const iconsUsers = allIcons.filter((icon)=>{
 		return icon.type==='user'
 	})
-	console.log(iconsUsers)
+	
+	
+	// creo un array con tutti gli array
+	const allarrays = [allIcons,iconsAnimals,iconsUsers,iconsVegetables]
+	htmlGenerator (allIcons)
+
+	
+	// prendo il valore della select
+	const select = document.getElementById('select');
+	console.log(select)
+	
+	select.addEventListener('click',function(){
+	let selectValue = document.getElementById('select').value;
+	    row.innerHTML = ''
+			switch(selectValue){
+					case '1':
+						htmlGenerator (allIcons)
+						break;
+					case '2':
+						htmlGenerator (iconsUsers)
+						break;
+					case '3':
+						htmlGenerator (iconsAnimals)
+						break;
+					case '4':
+						htmlGenerator (iconsVegetables)
+						break;
+			}
+	
+})	
 
 
-for(let i=0; i<icons.length ; i++){
-	let square = document.createElement('div');
-	square.className = 'square';
-	square.classList.add('col-2')
-	square.innerHTML=`<i class="fas fa-${icons[i].name}"></i>`
-	itemsColor(icons[i].type,square)
-	row.append(square);
+
+
+function htmlGenerator (selectedArray){
+	for(let i=0; i<selectedArray.length ; i++){
+		let square = document.createElement('div');
+		square.className = 'square';
+		square.innerHTML=`<i class="fas fa-${selectedArray[i].name}"></i>`
+		itemsColor(selectedArray[i].type,square)
+		row.append(square);
+	}
 }
-
 	
 
 
 
-
-console.log(iconsVegetables.color)
 // FUNZIONE COLORI ELEMENTI 
 function itemsColor(iconsType,squareStyle){
 	if(iconsType ==='vegetable'){

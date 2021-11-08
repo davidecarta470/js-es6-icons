@@ -26,6 +26,7 @@ header{
 }
 
 .square{
+  width: 180px;
   font-size: 40px;
   background-color: white;
   padding: 20px;
